@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata>
   <groupId>com.chenar</groupId>
-  <artifactId>chenar-spring-data-jpa-boot-starter</artifactId>
+  <artifactId>chenar-spring-data-common</artifactId>
   <versioning>
     <versions>
       <version>0.0.1-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20211214153355</lastUpdated>
+    <lastUpdated>20211214154435</lastUpdated>
   </versioning>
 </metadata>
