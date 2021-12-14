@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata modelVersion="1.1.0">
   <groupId>com.chenar</groupId>
-  <artifactId>chenar-spring-data-jpa-boot-starter</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <artifactId>chenar-spring-data</artifactId>
+  <version>0.0.2-SNAPSHOT</version>
   <versioning>
     <snapshot>
       <timestamp>20211214.154435</timestamp>
@@ -11,13 +11,8 @@
     <lastUpdated>20211214154435</lastUpdated>
     <snapshotVersions>
       <snapshotVersion>
-        <extension>jar</extension>
-        <value>0.0.1-20211214.154435-1</value>
-        <updated>20211214154435</updated>
-      </snapshotVersion>
-      <snapshotVersion>
         <extension>pom</extension>
-        <value>0.0.1-20211214.154435-1</value>
+        <value>0.0.2-20211214.154435-1</value>
         <updated>20211214154435</updated>
       </snapshotVersion>
     </snapshotVersions>
