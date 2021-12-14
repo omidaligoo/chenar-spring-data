@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata modelVersion="1.1.0">
   <groupId>com.chenar</groupId>
-  <artifactId>chenar-spring-data</artifactId>
+  <artifactId>chenar-spring-data-common</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <versioning>
     <snapshot>
@@ -10,6 +10,11 @@
     </snapshot>
     <lastUpdated>20211214153355</lastUpdated>
     <snapshotVersions>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>0.0.1-20211214.153355-1</value>
+        <updated>20211214153355</updated>
+      </snapshotVersion>
       <snapshotVersion>
         <extension>pom</extension>
         <value>0.0.1-20211214.153355-1</value>
