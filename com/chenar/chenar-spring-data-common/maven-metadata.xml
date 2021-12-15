@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata>
   <groupId>com.chenar</groupId>
-  <artifactId>chenar-spring-data-upside</artifactId>
+  <artifactId>chenar-spring-data-common</artifactId>
   <versioning>
     <versions>
       <version>0.0.2-SNAPSHOT</version>
