@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>com.chenar</groupId>
 		<artifactId>chenar-spring-data</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>0.0.2-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>chenar-spring-data-jpa</artifactId>
@@ -17,27 +17,12 @@
 	</properties>
 	<dependencies>
 
-		<dependency>
-			<groupId>com.querydsl</groupId>
-			<artifactId>querydsl-apt</artifactId>
-			<classifier>jpa</classifier>
-			<exclusions>
-				<exclusion>
-					<groupId>org.eclipse.jdt</groupId>
-					<artifactId>ecj</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
+
 
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>chenar-spring-data-common</artifactId>
+			<version>${project.version}</version>
 		</dependency>
 
 		<dependency>
@@ -47,19 +32,33 @@
 
 		<dependency>
 			<groupId>com.querydsl</groupId>
-			<artifactId>querydsl-jpa</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<artifactId>querydsl-apt</artifactId>
 		</dependency>
 
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>chenar-spring-data-common</artifactId>
+			<artifactId>chenar-spring-data-upside</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>com.querydsl</groupId>
+			<artifactId>querydsl-jpa</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jetbrains</groupId>
+			<artifactId>annotations</artifactId>
+			<version>16.0.1</version>
+		</dependency>
+
+
+
 
 	</dependencies>
 

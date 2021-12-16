@@ -6,7 +6,7 @@
 
 	<groupId>com.chenar</groupId>
 	<artifactId>chenar-spring-data</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>chenar-spring-data</name>
@@ -31,6 +31,7 @@
 	</licenses>
 
 	<modules>
+		<module>chenar-spring-data-upside</module>
 		<module>chenar-spring-data-common</module>
 		<module>chenar-spring-data-jpa</module>
 		<module>chenar-spring-data-jpa-boot-starter</module>
@@ -70,7 +71,17 @@
 
 		<!-- OTHER PROPERTIES -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<github.global.server>github</github.global.server>
 	</properties>
+
+<!--	<scm>-->
+<!--		<url>https://github.com/omidaligoo/chenar-spring-data.git</url>-->
+<!--		<connection>scm:git:git@github.com:omidaligoo/chenar-spring-data.git</connection>-->
+<!--		<developerConnection>scm:git:git@github.com:omidaligoo/chenar-spring-data.git</developerConnection>-->
+<!--	</scm>-->
+
+
 
 
 	<dependencyManagement>
@@ -239,7 +250,51 @@
 				<artifactId>coveralls-maven-plugin</artifactId>
 				<version>${coveralls-maven-plugin.version}</version>
 			</plugin>
+
+			<plugin>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.8.2</version>
+				<configuration>
+					<altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
+				</configuration>
+			</plugin>
+
+<!--			<plugin>-->
+<!--				<groupId>com.github.github</groupId>-->
+<!--				<artifactId>site-maven-plugin</artifactId>-->
+<!--				<version>0.12</version>-->
+<!--				<configuration>-->
+<!--					<message>Maven artifacts for ${project.version}</message>  &lt;!&ndash; git commit message &ndash;&gt;-->
+<!--					<noJekyll>true</noJekyll>                                  &lt;!&ndash; disable webpage processing &ndash;&gt;-->
+<!--					<outputDirectory>${project.build.directory}/mvn-repo</outputDirectory> &lt;!&ndash; matches distribution management repository url above &ndash;&gt;-->
+<!--					<branch>refs/heads/mvn-repo</branch>                       &lt;!&ndash; remote branch name &ndash;&gt;-->
+<!--					<includes><include>**/*</include></includes>-->
+<!--					<repositoryName>chenar-spring-data</repositoryName>      &lt;!&ndash; github repo name &ndash;&gt;-->
+<!--					<repositoryOwner>OmidAligoo</repositoryOwner>    &lt;!&ndash; github username  &ndash;&gt;-->
+<!--				</configuration>-->
+<!--				<executions>-->
+<!--					&lt;!&ndash; run site-maven-plugin's 'site' target as part of the build's normal 'deploy' phase &ndash;&gt;-->
+<!--					<execution>-->
+<!--						<goals>-->
+<!--							<goal>site</goal>-->
+<!--						</goals>-->
+<!--						<phase>deploy</phase>-->
+<!--					</execution>-->
+<!--				</executions>-->
+<!--			</plugin>-->
+
+
 		</plugins>
 	</build>
+
+	<distributionManagement>
+		<repository>
+			<id>internal.repo</id>
+			<name>Temporary Staging Repository</name>
+			<url>file://${project.build.directory}/mvn-repo</url>
+		</repository>
+	</distributionManagement>
+
+
 
 </project>
