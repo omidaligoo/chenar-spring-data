@@ -1,6 +1,5 @@
 package com.chenar.spring.data.jpa;
 
-import com.chenar.spring.data.jpa.extend.querydsl.ChenarJPAQuery;
 import com.querydsl.core.types.EntityPath;
 import com.querydsl.core.types.Predicate;
 import com.querydsl.core.types.SubQueryExpression;
@@ -16,7 +15,7 @@ public interface QuerydslJpaFragment<T> {
     /**
      * @see JPQLQueryFactory#query()
      */
-    <O> O query(Function<ChenarJPAQuery<?>, O> query);
+    <O> O query(Function<JPAQuery<?>, O> query);
 
     /**
      * @see JPQLQueryFactory#update(EntityPath)

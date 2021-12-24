@@ -1,6 +1,6 @@
 package com.chenar.spring.data.jpa;
 
-import com.chenar.spring.data.jpa.extend.querydsl.ChenarJPAQueryFactory;
+import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.query.EscapeCharacter;
@@ -23,7 +23,7 @@ public class ChenarJpaRepositoryFactoryBean <T extends Repository<S, ID>, S, ID 
     private EntityPathResolver entityPathResolver;
     private EscapeCharacter escapeCharacter;
     private JpaQueryMethodFactory queryMethodFactory;
-    private ChenarJPAQueryFactory chenarJpaQueryFactory;
+    private JPAQueryFactory chenarJpaQueryFactory;
     private JPASQLQueryFactory jpaSqlQueryFactory;
 
     public ChenarJpaRepositoryFactoryBean(Class<? extends T> repositoryInterface) {
@@ -51,7 +51,7 @@ public class ChenarJpaRepositoryFactoryBean <T extends Repository<S, ID>, S, ID 
     }
 
     @Autowired
-    public void setJPAQueryFactory(ChenarJPAQueryFactory chenarJpaQueryFactory) {
+    public void setJPAQueryFactory(JPAQueryFactory chenarJpaQueryFactory) {
         this.chenarJpaQueryFactory = chenarJpaQueryFactory;
     }
 

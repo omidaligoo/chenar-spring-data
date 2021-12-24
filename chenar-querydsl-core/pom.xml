@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.chenar</groupId>
+    <artifactId>chenar-spring-data</artifactId>
+    <version>0.0.2-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>chenar-querydsl-core</artifactId>
+
+  <packaging>jar</packaging>
+
+
+  <properties>
+    <java.version>17</java.version>
+  </properties>
+
+  
+  <dependencies>
+
+
+    <dependency>
+      <groupId>org.jetbrains</groupId>
+      <artifactId>annotations</artifactId>
+      <version>23.0.0</version>
+      <scope>provided</scope>
+    </dependency>
+
+
+    <dependency>
+      <groupId>com.mysema.commons</groupId>
+      <artifactId>mysema-commons-lang</artifactId>
+      <version>0.2.4</version>
+      <scope>provided</scope>
+    </dependency>
+
+    
+    <!-- alias dependencies -->
+    <dependency>
+      <groupId>cglib</groupId>
+      <artifactId>cglib</artifactId>
+      <version>3.3.0</version>
+    </dependency>
+    
+     <!-- backwards compatibility -->
+    <dependency>
+      <groupId>org.jvnet.hudson</groupId>
+      <artifactId>annotation-indexer</artifactId>
+      <version>1.2</version>
+      <optional>true</optional>
+    </dependency>
+
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>chenar-spring-data-upside</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    
+    <!--  test -->    
+    <dependency>
+      <groupId>jdepend</groupId>
+      <artifactId>jdepend</artifactId>
+      <version>2.9.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>

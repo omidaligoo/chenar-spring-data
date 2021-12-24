@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.chenar</groupId>
+    <artifactId>chenar-spring-data</artifactId>
+    <version>0.0.2-SNAPSHOT</version>
+  </parent>
+
+
+  <artifactId>chenar-querydsl-sql</artifactId>
+
+  <packaging>jar</packaging>
+
+  <properties>
+    <osgi.import.package>
+      org.joda.time.*;version="[1.6,3)",
+      ${osgi.import.package.root}
+    </osgi.import.package>
+    <argLine>-Xms256m -Xmx512m -Duser.timezone=UTC</argLine>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.jetbrains</groupId>
+      <artifactId>annotations</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.chenar</groupId>
+      <artifactId>chenar-querydsl-core</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+
+    <dependency>
+      <groupId>joda-time</groupId>
+      <artifactId>joda-time</artifactId>
+      <version>${jodatime.version}</version>
+      <scope>provided</scope>
+      <optional>true</optional>
+    </dependency>
+
+    <dependency>
+      <groupId>com.mysema.commons</groupId>
+      <artifactId>mysema-commons-lang</artifactId>
+      <version>0.2.4</version>
+      <scope>provided</scope>
+    </dependency>
+
+
+    <!-- backwards compatibility -->
+    <dependency>
+      <groupId>org.jvnet.hudson</groupId>
+      <artifactId>annotation-indexer</artifactId>
+      <version>1.2</version>
+      <optional>true</optional>
+    </dependency>
+  </dependencies>
+  
+
+  <!--TODO upgrade dependencies and get rid of repositories and pluginRepositories -->
+  <repositories>
+    <repository>
+      <id>datanucleus</id>
+      <url>https://www.datanucleus.org/downloads/maven2</url>
+    </repository>
+  </repositories>
+
+</project>

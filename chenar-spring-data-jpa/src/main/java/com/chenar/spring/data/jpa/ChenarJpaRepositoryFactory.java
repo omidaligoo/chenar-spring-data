@@ -1,7 +1,7 @@
 package com.chenar.spring.data.jpa;
 
-import com.chenar.spring.data.jpa.extend.querydsl.ChenarJPAQueryFactory;
 import com.querydsl.core.types.EntityPath;
+import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.springframework.data.jpa.repository.support.JpaEntityInformation;
 import org.springframework.data.jpa.repository.support.JpaRepositoryFactory;
 import org.springframework.data.querydsl.EntityPathResolver;
@@ -17,14 +17,14 @@ public class ChenarJpaRepositoryFactory extends JpaRepositoryFactory {
     private final JPASQLQueryFactory jpaSQLQueryFactory;
     private final EntityManager entityManager;
     private final EntityPathResolver entityPathResolver;
-    private final ChenarJPAQueryFactory chenarJpaQueryFactory;
+    private final JPAQueryFactory chenarJpaQueryFactory;
 
 
 
     public ChenarJpaRepositoryFactory(EntityManager entityManager,
                                                 JPASQLQueryFactory jpaSqlFactory,
                                                 EntityPathResolver entityPathResolver,
-                                                ChenarJPAQueryFactory chenarJpaQueryFactory) {
+                                                JPAQueryFactory chenarJpaQueryFactory) {
         super(entityManager);
         this.entityManager = entityManager;
         this.jpaSQLQueryFactory = jpaSqlFactory;

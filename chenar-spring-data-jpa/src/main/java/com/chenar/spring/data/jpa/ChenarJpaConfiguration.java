@@ -1,7 +1,7 @@
 package com.chenar.spring.data.jpa;
 
 import com.chenar.spring.data.common.ChenarSpringDataCommonConfiguration;
-import com.chenar.spring.data.jpa.extend.querydsl.ChenarJPAQueryFactory;
+import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.querydsl.jpa.impl.JPAProvider;
 import com.querydsl.jpa.sql.JPASQLQuery;
 import com.querydsl.sql.SQLTemplates;
@@ -24,7 +24,7 @@ public class ChenarJpaConfiguration {
 
     @ConditionalOnMissingBean
     @Bean
-    public ChenarJPAQueryFactory jpaQueryFactory(EntityManager entityManager) {
-        return new ChenarJPAQueryFactory(JPAProvider.getTemplates(entityManager), entityManager);
+    public JPAQueryFactory jpaQueryFactory(EntityManager entityManager) {
+        return new JPAQueryFactory(JPAProvider.getTemplates(entityManager), entityManager);
     }
 }
