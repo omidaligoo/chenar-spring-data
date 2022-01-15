@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
@@ -12,6 +13,9 @@
 	<name>chenar-spring-data</name>
 
 	<description>Chenar common spring data connector</description>
+
+
+
 
 
 
@@ -38,6 +42,8 @@
 		<module>chenar-querydsl-core</module>
 		<module>chenar-querydsl-sql</module>
 		<module>chenar-querydsl-jpa</module>
+		<module>chenar-spring-data-r2dbc</module>
+		<module>chenar-spring-data-r2dbc-boot-starter</module>
 	</modules>
 
 	<developers>
@@ -174,8 +180,18 @@
 
 
 	<build>
+	  <extensions>
+      <!-- Enabling the use of FTP -->
+		  <extension>
+			  <groupId>org.apache.maven.wagon</groupId>
+			  <artifactId>wagon-ftp</artifactId>
+			  <version>3.0.0</version>
+		  </extension>
+    </extensions>
 		<pluginManagement>
 			<plugins>
+
+
 
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -289,13 +305,13 @@
 				<version>${coveralls-maven-plugin.version}</version>
 			</plugin>
 
-			<plugin>
-				<artifactId>maven-deploy-plugin</artifactId>
-				<version>2.8.2</version>
-				<configuration>
-					<altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
-				</configuration>
-			</plugin>
+<!--			<plugin>-->
+<!--				<artifactId>maven-deploy-plugin</artifactId>-->
+<!--				<version>2.8.2</version>-->
+<!--				<configuration>-->
+<!--					<altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>-->
+<!--				</configuration>-->
+<!--			</plugin>-->
 
 <!--			<plugin>-->
 <!--				<groupId>com.github.github</groupId>-->
@@ -321,18 +337,31 @@
 <!--				</executions>-->
 <!--			</plugin>-->
 
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>wagon-maven-plugin</artifactId>
+				<version>1.0-beta-3</version>
 
+				<executions>
+					<execution>
+						<id>upload</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>upload</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 
 	<distributionManagement>
 		<repository>
-			<id>internal.repo</id>
-			<name>Temporary Staging Repository</name>
-			<url>file://${project.build.directory}/mvn-repo</url>
+			<id>16.170.133.216</id>
+			<url>ftp://ftps://16.170.133.216:8009</url>
 		</repository>
 	</distributionManagement>
 
 
-
 </project>
+

@@ -54,10 +54,7 @@
       <version>${project.version}</version>
     </dependency>
 
-    <dependency>
-      <groupId>com.querydsl</groupId>
-      <artifactId>querydsl-apt</artifactId>
-    </dependency>
+
     
     <dependency>
       <groupId>com.chenar</groupId>
