@@ -4,7 +4,6 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-
 	<groupId>com.chenar</groupId>
 	<artifactId>chenar-spring-data</artifactId>
 	<version>0.0.2-SNAPSHOT</version>
@@ -180,14 +179,14 @@
 
 
 	<build>
-	  <extensions>
-      <!-- Enabling the use of FTP -->
-		  <extension>
-			  <groupId>org.apache.maven.wagon</groupId>
-			  <artifactId>wagon-ftp</artifactId>
-			  <version>3.0.0</version>
-		  </extension>
-    </extensions>
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-ssh-external</artifactId>
+				<version>1.0-beta-6</version>
+			</extension>
+		</extensions>
+
 		<pluginManagement>
 			<plugins>
 
@@ -241,6 +240,28 @@
 						</configuration>
 					</execution>
 				</executions>
+			</plugin>
+
+			<!-- <plugin>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.8.2</version>
+				<configuration>
+					<altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
+				</configuration>
+			</plugin> -->
+
+			<plugin>
+   				<artifactId>maven-deploy-plugin</artifactId>
+   				<version>2.8.1</version>
+   				<executions>
+      				<execution>
+         				<id>default-deploy</id>
+         				<phase>deploy</phase>
+         				<goals>
+            				<goal>deploy</goal>
+         				</goals>
+      				</execution>
+   				</executions>
 			</plugin>
 
 			<plugin>
@@ -305,63 +326,41 @@
 				<version>${coveralls-maven-plugin.version}</version>
 			</plugin>
 
-<!--			<plugin>-->
-<!--				<artifactId>maven-deploy-plugin</artifactId>-->
-<!--				<version>2.8.2</version>-->
-<!--				<configuration>-->
-<!--					<altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>-->
-<!--				</configuration>-->
-<!--			</plugin>-->
-
-<!--			<plugin>-->
-<!--				<groupId>com.github.github</groupId>-->
-<!--				<artifactId>site-maven-plugin</artifactId>-->
-<!--				<version>0.12</version>-->
-<!--				<configuration>-->
-<!--					<message>Maven artifacts for ${project.version}</message>  &lt;!&ndash; git commit message &ndash;&gt;-->
-<!--					<noJekyll>true</noJekyll>                                  &lt;!&ndash; disable webpage processing &ndash;&gt;-->
-<!--					<outputDirectory>${project.build.directory}/mvn-repo</outputDirectory> &lt;!&ndash; matches distribution management repository url above &ndash;&gt;-->
-<!--					<branch>refs/heads/mvn-repo</branch>                       &lt;!&ndash; remote branch name &ndash;&gt;-->
-<!--					<includes><include>**/*</include></includes>-->
-<!--					<repositoryName>chenar-spring-data</repositoryName>      &lt;!&ndash; github repo name &ndash;&gt;-->
-<!--					<repositoryOwner>OmidAligoo</repositoryOwner>    &lt;!&ndash; github username  &ndash;&gt;-->
-<!--				</configuration>-->
-<!--				<executions>-->
-<!--					&lt;!&ndash; run site-maven-plugin's 'site' target as part of the build's normal 'deploy' phase &ndash;&gt;-->
-<!--					<execution>-->
-<!--						<goals>-->
-<!--							<goal>site</goal>-->
-<!--						</goals>-->
-<!--						<phase>deploy</phase>-->
-<!--					</execution>-->
-<!--				</executions>-->
-<!--			</plugin>-->
-
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>wagon-maven-plugin</artifactId>
-				<version>1.0-beta-3</version>
-
-				<executions>
-					<execution>
-						<id>upload</id>
-						<phase>deploy</phase>
-						<goals>
-							<goal>upload</goal>
-						</goals>
-					</execution>
-				</executions>
+   				<groupId>org.sonatype.plugins</groupId>
+   				<artifactId>nexus-staging-maven-plugin</artifactId>
+   				<version>1.6.3</version>
+   				<executions>
+      				<execution>
+         				<id>default-deploy</id>
+         				<phase>deploy</phase>
+         				<goals>
+            				<goal>deploy</goal>
+         				</goals>
+      				</execution>
+   				</executions>
+   				<configuration>
+      				<serverId>nexus-snapshots</serverId>
+      				<nexusUrl>http://test.persifund.com:8012/nexus/</nexusUrl>
+      				<skipStaging>true</skipStaging>
+   				</configuration>
 			</plugin>
+
 		</plugins>
 	</build>
 
 	<distributionManagement>
 		<repository>
-			<id>16.170.133.216</id>
-			<url>ftp://ftps://16.170.133.216:8009</url>
+			<id>nexus-releases</id>
+			<name>Internal Releases</name>
+			<url>http://test.persifund.com:8012/repository/maven-releases</url>
 		</repository>
+   		<snapshotRepository>
+			<id>nexus-snapshots</id>
+			<name>Internal Releases</name>
+      		<url>http://test.persifund.com:8012/repository/maven-snapshots</url>
+   		</snapshotRepository>
 	</distributionManagement>
 
 
 </project>
-
