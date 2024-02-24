@@ -216,6 +216,7 @@ public enum Ops implements Operator {
         DIFF_HOURS(Comparable.class),
         DIFF_MINUTES(Comparable.class),
         DIFF_SECONDS(Comparable.class),
+        TRUNC_DATE(Comparable.class),
         TRUNC_YEAR(Comparable.class),
         TRUNC_MONTH(Comparable.class),
         TRUNC_WEEK(Comparable.class),

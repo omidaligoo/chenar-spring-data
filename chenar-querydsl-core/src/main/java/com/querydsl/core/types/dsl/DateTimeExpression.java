@@ -84,7 +84,7 @@ public abstract class DateTimeExpression<T extends Comparable> extends TemporalE
     private transient volatile NumberExpression<Integer> hours, minutes, seconds, milliseconds;
 
     @Nullable
-    private transient volatile DateTimeExpression<T> min, max;
+    private transient volatile DateTimeExpression<T> min, max, truncDay ;
 
     @Nullable
     private transient volatile NumberExpression<Integer> week, month, year, yearMonth, yearWeek;
@@ -141,6 +141,8 @@ public abstract class DateTimeExpression<T extends Comparable> extends TemporalE
         return dayOfYear;
     }
 
+
+
     /**
      * Create a hours expression (range 0-23)
      *
@@ -151,6 +153,18 @@ public abstract class DateTimeExpression<T extends Comparable> extends TemporalE
             hours = Expressions.numberOperation(Integer.class, Ops.DateTimeOps.HOUR, mixin);
         }
         return hours;
+    }
+
+         /**
+     * Get the tunc date value of this expression (aggregation)
+     *
+     * @return tunc-date(this)
+     */
+    public DateTimeExpression<T> truncDay() {
+        if (truncDay == null) {
+            truncDay = Expressions.dateTimeOperation(getType(), Ops.DateTimeOps.TRUNC_DAY , mixin);
+        }
+        return truncDay;
     }
 
     /**

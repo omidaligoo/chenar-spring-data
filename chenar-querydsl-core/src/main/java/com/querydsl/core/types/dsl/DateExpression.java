@@ -63,7 +63,7 @@ public abstract class DateExpression<T extends Comparable> extends TemporalExpre
     private transient volatile NumberExpression<Integer> dayOfMonth, dayOfWeek, dayOfYear;
 
     @Nullable
-    private transient volatile DateExpression<T> min, max;
+    private transient volatile DateExpression<T> min, max,truncDay;
 
     @Nullable
     private transient volatile NumberExpression<Integer> week, month, year, yearMonth, yearWeek;
@@ -119,7 +119,18 @@ public abstract class DateExpression<T extends Comparable> extends TemporalExpre
         }
         return dayOfYear;
     }
-
+    
+     /**
+     * Get the tunc date value of this expression (aggregation)
+     *
+     * @return tunc-date(this)
+     */
+    public DateExpression<T> truncDay() {
+        if (truncDay == null) {
+            truncDay = Expressions.dateOperation(getType(), Ops.DateTimeOps.TRUNC_DAY , mixin);
+        }
+        return truncDay;
+    }
     /**
      * Get the maximum value of this expression (aggregation)
      *

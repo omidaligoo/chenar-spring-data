@@ -77,6 +77,7 @@ public class JavaTemplates extends Templates {
         add(Ops.DateTimeOps.DAY_OF_MONTH, "{0}.getDayOfMonth()", Precedence.DOT);
         add(Ops.DateTimeOps.DAY_OF_WEEK, "{0}.getDayOfWeek()", Precedence.DOT);
         add(Ops.DateTimeOps.DAY_OF_YEAR, "{0}.getDayOfYear()", Precedence.DOT);
+        add(Ops.DateTimeOps.TRUNC_DAY, "date_trunc('day',{0})", Precedence.DOT);
         add(Ops.DateTimeOps.HOUR, "{0}.getHour()", Precedence.DOT);
         add(Ops.DateTimeOps.MINUTE, "{0}.getMinute()", Precedence.DOT);
         add(Ops.DateTimeOps.MONTH, "{0}.getMonth()", Precedence.DOT);
@@ -84,7 +85,6 @@ public class JavaTemplates extends Templates {
         add(Ops.DateTimeOps.SECOND, "{0}.getSecond()", Precedence.DOT);
         add(Ops.DateTimeOps.WEEK, "{0}.getWeek()", Precedence.DOT);
         add(Ops.DateTimeOps.YEAR, "{0}.getYear()", Precedence.DOT);
-
         add(Ops.DateTimeOps.YEAR_MONTH, "{0}.getYear() * 100 + {0}.getMonth()");
 
         // case

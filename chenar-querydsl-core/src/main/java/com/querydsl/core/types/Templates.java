@@ -200,7 +200,7 @@ public class Templates {
         add(Ops.DateTimeOps.TRUNC_YEAR, "trunc_year({0})");
         add(Ops.DateTimeOps.TRUNC_MONTH, "trunc_month({0})");
         add(Ops.DateTimeOps.TRUNC_WEEK, "trunc_week({0})");
-        add(Ops.DateTimeOps.TRUNC_DAY, "trunc_day({0})");
+        add(Ops.DateTimeOps.TRUNC_DAY, "date_trunc('day',{0})");
         add(Ops.DateTimeOps.TRUNC_HOUR, "trunc_hour({0})");
         add(Ops.DateTimeOps.TRUNC_MINUTE, "trunc_minute({0})");
         add(Ops.DateTimeOps.TRUNC_SECOND, "trunc_second({0})");
